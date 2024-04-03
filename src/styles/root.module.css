@@ -1,0 +1,76 @@
+.main_container {
+  height: 100vh;
+}
+
+.navbar {
+  display: flex;
+}
+
+.navbar_items {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  width: 80%;
+}
+
+li {
+  color: rgb(251, 217, 151);
+  margin-left: 20px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.auth_button_container {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  cursor: pointer;
+  background: orange;
+  color: white;
+  border-radius: 4px;
+  height: 40px;
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+ul {
+  color: greenyellow;
+  width: 50%;
+}
+
+li {
+  color: rgb(151, 134, 106);
+}
+
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer p {
+  margin: 5px 0;
+}

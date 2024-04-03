@@ -1,0 +1,96 @@
+.cardContainer {
+  width: 360px;
+  height: auto;
+  max-height: 560px; /* Set maximum height for the card */
+  background-color: black;
+  border: 2px solid #1a1818;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.description {
+  font-size: 14px;
+  margin-bottom: 10px;
+  max-height: 100px; /* Set maximum height for the description */
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.brand {
+  font-size: 16px;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+/* .description {
+  font-size: 14px;
+  margin-bottom: 10px;
+} */
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.editButton,
+.deleteButton,
+.addToCartButton {
+  padding: 10px 20px;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.editButton:hover,
+.deleteButton:hover,
+.addToCartButton:hover {
+  background-color: white;
+  color: black;
+}
+
+.deleteButton {
+  background-color: transparent;
+  border-color: #dc3545;
+}
+
+.addToCartButton {
+  background-color: transparent;
+  border-color: #007bff;
+}
+
+.readMoreButton {
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.readMoreButton:hover {
+  text-decoration: underline;
+}
