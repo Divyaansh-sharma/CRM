@@ -12,8 +12,6 @@ const LoginForm = () => {
   const navigate = useNavigate();
   const { token, isLoading, error } = useSelector((state) => state.log);
 
-  console.log("isLoading", isLoading, "error", error, "token", token);
-
   const dispatch = useDispatch();
 
   useEffect(() => {

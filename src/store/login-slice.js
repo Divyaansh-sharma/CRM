@@ -17,7 +17,6 @@ const loginSlice = createSlice({
       state.isLoading = true;
     },
     showErrorNotification(state, action) {
-      console.log("action ==>", action);
       state.isLoading = false;
       state.error = {
         isError: true,
@@ -25,7 +24,6 @@ const loginSlice = createSlice({
       };
     },
     loggedIn(state, action) {
-      console.log("lets check payload now ==>", action);
       state.isLoading = false;
       state.token = action.payload;
     },

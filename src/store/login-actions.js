@@ -23,7 +23,6 @@ export const loginUser = ({ username, password }) => {
 
     try {
       const data = await fetchData();
-      console.log("lets check data herre ==>", data);
       dispatch(loginActions.loggedIn(data.token));
     } catch (error) {
       dispatch(loginActions.showErrorNotification("Authentication Failed"));

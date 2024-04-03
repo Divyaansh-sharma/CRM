@@ -45,14 +45,9 @@
   margin-bottom: 10px;
 }
 
-/* .description {
-  font-size: 14px;
-  margin-bottom: 10px;
-} */
-
 .actions {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .editButton,
@@ -79,11 +74,6 @@
   border-color: #dc3545;
 }
 
-.addToCartButton {
-  background-color: transparent;
-  border-color: #007bff;
-}
-
 .readMoreButton {
   background-color: transparent;
   color: white;
@@ -93,4 +83,5 @@
 
 .readMoreButton:hover {
   text-decoration: underline;
+  background-color: transparent;
 }

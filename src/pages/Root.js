@@ -11,7 +11,6 @@ export function Root() {
   const dispatch = useDispatch();
   const location = useLocation();
 
-  console.log("lets check params ==>", location);
   useEffect(() => {
     if (location.pathname === "/") {
       navigate("/home");
@@ -49,7 +48,7 @@ export function Root() {
           {token && (
             <li>
               <NavLink
-                to="/projects"
+                to="/products"
                 className={({ isActive }) => (isActive ? "active-navlink" : "")}
               >
                 Products
