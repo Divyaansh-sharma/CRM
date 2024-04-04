@@ -66,13 +66,10 @@ export const addProduct = ({ title, price, brand, description, thumbnail }) => {
 
     try {
       const data = await fetchData();
-      console.log("dataaa ===>", data);
       dispatch(productsActions.addProductInProductsData(data));
     } catch (error) {}
   };
 };
-
-// { title, price, brand, description, thumbnail,id }
 
 export const updateProduct = ({
   title,
@@ -105,7 +102,6 @@ export const updateProduct = ({
 
     try {
       const data = await fetchData();
-      console.log("dataaa ===>", data);
       dispatch(productsActions.updateProductInProductsData(data));
     } catch (error) {}
   };

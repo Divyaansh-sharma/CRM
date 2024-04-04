@@ -2,11 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Card } from "../components/Card";
 import styles from "../styles/projects.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  deleteProduct,
-  getproductsData,
-  updateProduct,
-} from "../store/products-actions";
+import { deleteProduct, getproductsData } from "../store/products-actions";
 import { ProductForm } from "../components/ProductForm";
 
 export function Products() {
@@ -16,10 +12,11 @@ export function Products() {
   const [productFormState, setProductFormState] = useState("");
   const [editProductData, setEditProductData] = useState(null);
 
-  console.log("products =>", products);
   useEffect(() => {
-    dispatch(getproductsData());
-  }, [dispatch]);
+    if (!products.length) {
+      dispatch(getproductsData());
+    }
+  }, [dispatch, products]);
 
   const deleteProductHandler = (id) => {
     dispatch(deleteProduct(id));
@@ -32,7 +29,6 @@ export function Products() {
   };
 
   const editProductDataHandler = (data) => {
-    console.log("lets check in edit ==>", data);
     setIsOpen(true);
     setProductFormState("Edit");
     setEditProductData(data);

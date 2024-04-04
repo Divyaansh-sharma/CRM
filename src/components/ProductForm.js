@@ -19,7 +19,6 @@ export const ProductForm = ({
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("editProductData", editProductData);
     if (editProductData) {
       setProductData({
         title: editProductData?.title,

@@ -10,6 +10,7 @@ import { getTokenDuration } from "./helpers/getTokenDuration.js";
 import { logout } from "./helpers/logout.js";
 import { loginActions } from "./store/login-slice.js";
 import { Products } from "./pages/Products.js";
+import { PageNotFound } from "./pages/PageNotFound.js";
 
 function App() {
   const { token } = useSelector((state) => state?.log);
@@ -36,6 +37,7 @@ function App() {
         <Route path="/contact-us" element={<ContactUs />} />
         {token && <Route path="/dashboard" element={<Dashboard />} />}
         {token && <Route path="/products" element={<Products />} />}
+        <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>
   );
