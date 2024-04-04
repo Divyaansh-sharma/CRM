@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import styles from "../styles/addProductForm.module.css";
-import { useDispatch } from "react-redux";
+import styles from "../styles/productForm.module.css";
+import { useDispatch, useSelector } from "react-redux";
 import { addProduct, updateProduct } from "../store/products-actions";
 
 export const ProductForm = ({
@@ -8,6 +8,7 @@ export const ProductForm = ({
   productFormState,
   editProductData,
 }) => {
+  const { isSubmitting, formErrorMessage } = useSelector((state) => state.prod);
   const [productData, setProductData] = useState({
     title: "",
     price: "",
@@ -15,7 +16,7 @@ export const ProductForm = ({
     description: "",
     thumbnail: null,
   });
-
+  const [error, setError] = useState(null);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -50,25 +51,44 @@ export const ProductForm = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (productFormState === "Add") {
-      dispatch(addProduct(productData));
-    } else if (productFormState === "Edit") {
-      dispatch(updateProduct({ ...productData, id: editProductData.id }));
+    if (
+      !productData.brand ||
+      !productData.description ||
+      !productData.price ||
+      !productData.thumbnail ||
+      !productData.title
+    ) {
+      setError({
+        isError: true,
+        message: "All form fields are required!",
+      });
+    } else {
+      if (productFormState === "Add") {
+        dispatch(addProduct(productData));
+      } else if (productFormState === "Edit") {
+        dispatch(updateProduct({ ...productData, id: editProductData.id }));
+      }
+      closeFormHandler();
+      setProductData({
+        title: "",
+        price: "",
+        brand: "",
+        description: "",
+        thumbnail: null,
+      });
     }
-    closeFormHandler();
-    setProductData({
-      title: "",
-      price: "",
-      brand: "",
-      description: "",
-      thumbnail: null,
-    });
   };
 
   return (
     <>
       <div className={styles.backdrop} onClick={closeFormHandler}></div>
       <div className={styles.container}>
+        {error?.isError && (
+          <div className={styles.error_message}>{error?.message}</div>
+        )}
+        {formErrorMessage && (
+          <div className={styles.error_message}>{formErrorMessage}</div>
+        )}
         <h2>{productFormState} Product</h2>
         <form onSubmit={handleSubmit}>
           <div className={styles.formGroup}>
@@ -115,7 +135,13 @@ export const ProductForm = ({
               onChange={handleThumbnailChange}
             />
           </div>
-          <button type="submit">Submit</button>
+          <button
+            className={styles.submit_button}
+            type="submit"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Submitting..." : "Submit"}
+          </button>
         </form>
       </div>
     </>

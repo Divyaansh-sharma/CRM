@@ -11,6 +11,12 @@
   justify-content: center;
   list-style: none;
   width: 80%;
+  list-style: none;
+  text-decoration: none;
+}
+.navbar_items li a {
+  list-style: none !important;
+  text-decoration: none !important;
 }
 
 li {
@@ -18,6 +24,15 @@ li {
   margin-left: 20px;
   cursor: pointer;
   font-size: 20px;
+}
+
+.list_item {
+  color: #e7c484;
+}
+
+.isActive {
+  color: orange;
+  border-bottom: 1px solid orange;
 }
 
 .auth_button_container {
@@ -43,15 +58,6 @@ section {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-
-ul {
-  color: greenyellow;
-  width: 50%;
-}
-
-li {
-  color: rgb(151, 134, 106);
 }
 
 .footer {

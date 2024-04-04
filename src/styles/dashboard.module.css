@@ -1,5 +1,5 @@
 .dashboard_container {
-  height: 77%;
+  height: 79%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -11,4 +11,12 @@
   width: 40%;
   min-width: 390px;
   margin: 50px 0px 30px 0px;
+}
+
+.loading_container {
+  color: white;
+  height: 170px;
+  display: flex;
+  align-items: center;
+  font-size: 30px;
 }

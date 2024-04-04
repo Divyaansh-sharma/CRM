@@ -19,12 +19,11 @@ function App() {
 
   useEffect(() => {
     const { duration, token } = getTokenDuration();
-
     dispatch(loginActions.loggedIn(token));
     if (duration) {
       setTimeout(() => {
         logout();
-        navigate("/");
+        navigate("/home");
       }, duration);
     }
   }, [token, navigate, dispatch]);

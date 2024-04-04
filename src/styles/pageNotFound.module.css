@@ -12,11 +12,11 @@
 .title {
   font-size: 3rem;
   margin-bottom: 20px;
-  color: #dc3545; /* Red color for emphasis */
+  color: #dc3545;
 }
 
 .message {
   font-size: 1.5rem;
   margin-bottom: 20px;
-  color: #6c757d; /* Gray color for message */
+  color: rgb(251, 217, 151);
 }

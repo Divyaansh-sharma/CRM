@@ -62,7 +62,7 @@ function calculateMinMaxPriceByCategory(products) {
 }
 
 export function Dashboard() {
-  const { products } = useSelector((state) => state.prod);
+  const { products, isLoading } = useSelector((state) => state.prod);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -127,12 +127,17 @@ export function Dashboard() {
 
   return (
     <div className={styles.dashboard_container}>
-      <div className={styles.chart_container}>
-        <CanvasJSChart options={stockAvaliabilityBycategory} />
-      </div>
-      <div className={styles.chart_container}>
-        <CanvasJSChart options={minmaxPriceByCategory} />
-      </div>
+      {isLoading && <div className={styles.loading_container}>Loading...</div>}
+      {!isLoading && (
+        <>
+          <div className={styles.chart_container}>
+            <CanvasJSChart options={stockAvaliabilityBycategory} />
+          </div>
+          <div className={styles.chart_container}>
+            <CanvasJSChart options={minmaxPriceByCategory} />
+          </div>
+        </>
+      )}
     </div>
   );
 }

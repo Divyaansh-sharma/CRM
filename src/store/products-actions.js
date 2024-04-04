@@ -2,6 +2,8 @@ import { productsActions } from "./products-slice";
 
 export const getproductsData = () => {
   return async (dispatch) => {
+    dispatch(productsActions.gettingProducts());
+
     const fetchData = async () => {
       const response = await fetch("https://dummyjson.com/products");
 
@@ -15,12 +17,17 @@ export const getproductsData = () => {
     try {
       const data = await fetchData();
       dispatch(productsActions.addProductsdata(data.products));
-    } catch (error) {}
+    } catch (error) {
+      dispatch(
+        productsActions.showErrorNotification("Error while getting products.")
+      );
+    }
   };
 };
 
 export const deleteProduct = (id) => {
   return async (dispatch) => {
+    dispatch(productsActions.deletingProduct(id));
     const fetchData = async () => {
       const response = await fetch(`https://dummyjson.com/products/${id}`, {
         method: "DELETE",
@@ -37,13 +44,14 @@ export const deleteProduct = (id) => {
       const data = await fetchData();
       dispatch(productsActions.deletedProduct(data));
     } catch (error) {
-      //   dispatch(loginActions.showErrorNotification("Authentication Failed"));
+      dispatch(productsActions.deletionFailed());
     }
   };
 };
 
 export const addProduct = ({ title, price, brand, description, thumbnail }) => {
   return async (dispatch) => {
+    dispatch(productsActions.formSubmitting());
     const fetchData = async () => {
       const response = await fetch("https://dummyjson.com/products/add", {
         method: "POST",
@@ -67,7 +75,9 @@ export const addProduct = ({ title, price, brand, description, thumbnail }) => {
     try {
       const data = await fetchData();
       dispatch(productsActions.addProductInProductsData(data));
-    } catch (error) {}
+    } catch (error) {
+      dispatch(productsActions.formSubmissionFailed());
+    }
   };
 };
 
@@ -80,6 +90,7 @@ export const updateProduct = ({
   id,
 }) => {
   return async (dispatch) => {
+    dispatch(productsActions.formSubmitting());
     const fetchData = async () => {
       const response = await fetch(`https://dummyjson.com/products/${id}`, {
         method: "PUT",
@@ -103,6 +114,8 @@ export const updateProduct = ({
     try {
       const data = await fetchData();
       dispatch(productsActions.updateProductInProductsData(data));
-    } catch (error) {}
+    } catch (error) {
+      dispatch(productsActions.formSubmissionFailed());
+    }
   };
 };

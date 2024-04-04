@@ -15,7 +15,7 @@ export function Root() {
     if (location.pathname === "/") {
       navigate("/home");
     }
-  }, [navigate,location]);
+  }, [navigate, location]);
 
   const logoutHandler = () => {
     logout();
@@ -30,7 +30,9 @@ export function Root() {
           <li>
             <NavLink
               to="/home"
-              className={({ isActive }) => (isActive ? "active-navlink" : "")}
+              className={({ isActive }) =>
+                isActive ? styles.isActive : styles.list_item
+              }
             >
               Home
             </NavLink>
@@ -39,7 +41,9 @@ export function Root() {
             <li>
               <NavLink
                 to="/dashboard"
-                className={({ isActive }) => (isActive ? "active-navlink" : "")}
+                className={({ isActive }) =>
+                  isActive ? styles.isActive : styles.list_item
+                }
               >
                 Dashboard
               </NavLink>
@@ -49,7 +53,9 @@ export function Root() {
             <li>
               <NavLink
                 to="/products"
-                className={({ isActive }) => (isActive ? "active-navlink" : "")}
+                className={({ isActive }) =>
+                  isActive ? styles.isActive : styles.list_item
+                }
               >
                 Products
               </NavLink>
@@ -58,9 +64,11 @@ export function Root() {
           <li>
             <NavLink
               to="/contact-us"
-              className={({ isActive }) => (isActive ? "active-navlink" : "")}
+              className={({ isActive }) =>
+                isActive ? styles.isActive : styles.list_item
+              }
             >
-              Contact US
+              Contact Us
             </NavLink>
           </li>
         </ul>

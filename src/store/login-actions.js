@@ -25,7 +25,9 @@ export const loginUser = ({ username, password }) => {
       const data = await fetchData();
       dispatch(loginActions.loggedIn(data.token));
     } catch (error) {
-      dispatch(loginActions.showErrorNotification("Authentication Failed"));
+      dispatch(
+        loginActions.showErrorNotification("username or password is incorrect.")
+      );
     }
   };
 };

@@ -9,10 +9,20 @@ import { useNavigate } from "react-router-dom";
 const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [formError, setFormError] = useState(null);
   const navigate = useNavigate();
   const { token, isLoading, error } = useSelector((state) => state.log);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (error) {
+      setFormError({
+        isError: error.isError,
+        message: error.message,
+      });
+    }
+  }, [error]);
 
   useEffect(() => {
     if (token) {
@@ -23,6 +33,13 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!username || !password) {
+      setFormError({
+        isError: true,
+        message: "username and password are required.",
+      });
+      return;
+    }
     dispatch(loginUser({ username, password }));
   };
 
@@ -30,8 +47,8 @@ const LoginForm = () => {
     <div className={styles.login_form_container}>
       <div className={styles.login_form_subcontainer}>
         <h1>Log In</h1>
-        {error?.isError && (
-          <h3 className={styles.error_message}>{error.message}</h3>
+        {formError?.isError && (
+          <h3 className={styles.error_message}>{formError?.message}</h3>
         )}
         <form onSubmit={handleSubmit}>
           <label htmlFor="username">Username</label>

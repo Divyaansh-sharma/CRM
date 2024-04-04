@@ -1,50 +1,51 @@
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    color: white;
-  }
-  
-  h1 {
-    margin-bottom: 20px;
-  }
-  
-  .contactInfo, .form {
-    margin-bottom: 40px;
-  }
-  
-  .formGroup {
-    margin-bottom: 20px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  textarea {
-    resize: vertical;
-  }
-  
-  .submitButton {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .submitButton:hover {
-    background-color: #0056b3;
-  }
-  
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  color: rgb(251, 217, 151);
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.contactInfo,
+.form {
+  margin-bottom: 40px;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.submitButton {
+  padding: 10px 20px;
+  background-color: orange;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.submitButton:hover {
+  background-color: #0056b3;
+}
